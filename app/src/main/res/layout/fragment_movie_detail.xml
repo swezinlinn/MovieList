@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:context=".presentation.detailphoto.PhotoDetailActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/detail_app_bar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_image_height_size"
+                android:fitsSystemWindows="true"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/detail_collapsing_toolbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:expandedTitleMarginEnd="64dp"
+                    app:expandedTitleMarginStart="48dp"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightGray">
+
+                    <ImageView
+                            android:id="@+id/detail_toolbar_image_view"
+                            android:transitionName="image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fitsSystemWindows="true"
+                            android:src="@drawable/ic_place_holder"
+                            android:scaleType="centerCrop"
+                            app:layout_collapseMode="parallax"/>
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/detail_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        app:titleTextColor="@color/white"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:id="@+id/detail_nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical">
+
+
+                <!--Description-->
+               <androidx.constraintlayout.widget.ConstraintLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:text="Title"
+                            android:id="@+id/fav"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_star_empty_white_vector"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="@dimen/subheading1"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_margin="16dp"
+                       android:text="👈 Add to Favourite"
+                       android:textSize="12sp"
+                       app:layout_constraintStart_toEndOf="@id/fav"
+                       app:layout_constraintTop_toTopOf="parent"
+                       />
+
+                   <TextView
+                           android:text="Popularity :"
+                           android:id="@+id/released"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_margin="16dp"
+                           app:layout_constraintTop_toBottomOf="@+id/fav"
+                           app:layout_constraintStart_toStartOf="parent"
+                           android:textColor="@color/colorTextSecondary"
+                           android:textSize="@dimen/subheading1"/>
+                   <TextView
+                           android:text="2445.99"
+                           android:id="@+id/popularity"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_margin="16dp"
+                           app:layout_constraintTop_toBottomOf="@+id/fav"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           android:textColor="@color/colorTextSecondary"
+                           android:textSize="@dimen/subheading1"/>
+                   <TextView
+                           android:text="Plot"
+                           android:id="@+id/plot"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_margin="16dp"
+                           app:layout_constraintTop_toBottomOf="@+id/popularity"
+                           app:layout_constraintStart_toStartOf="parent"
+                           android:textColor="@color/colorTextSecondary"
+                           android:textSize="@dimen/subheading1"/>
+                   <View
+                           android:id="@+id/divider"
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"
+                           android:layout_marginTop="16dp"
+                           android:background="@color/lightGray"
+                           app:layout_constraintTop_toBottomOf="@+id/plot"/>
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
