@@ -44,7 +44,6 @@ class MovieDataSource(
                     )
                 }
 
-
                 dao.insertAll(MovieResponseMapper.mapMovieListToMovieEntity(response))
                 response
             } else {
