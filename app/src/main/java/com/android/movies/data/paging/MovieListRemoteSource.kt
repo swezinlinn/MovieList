@@ -1,6 +1,5 @@
 package com.android.movies.data.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.android.movies.data.mapper.MovieResponseMapper
@@ -22,7 +21,6 @@ class MovieDataSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieList> {
         val position = params.key ?: STARTING_PAGE_INDEX
-        Log.d("upate---->","upd---noo nooo")
 
         return try {
             var photos = emptyList<MovieList>()

@@ -13,9 +13,11 @@ class MoviePagingRepository @Inject constructor(private val movieApi: MovieApi, 
     fun getMovieList(apiKey: String, movieType:String) =
         Pager(
             config = PagingConfig(
-                pageSize = 1,
-                maxSize = 20,
-                enablePlaceholders = false
+                pageSize = 20,
+                enablePlaceholders = true,
+                maxSize = 30,
+                prefetchDistance = 5,
+                initialLoadSize = 40
             ),
             pagingSourceFactory = { MovieDataSource(movieApi,apiKey,dao,movieType) }
         ).liveData
